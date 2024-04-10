@@ -7,7 +7,6 @@ get_log_collection_args
 
 HAS_OSUS=$(oc get csv -A --no-headers -o custom-columns=NS:.metadata.namespace,OPERATOR:.metadata.name --ignore-not-found=true | grep "${OSUS_OPERATOR_NAME}" | awk '{print $1}')
 if [ -z "$HAS_OSUS" ]; then
-    echo -e "\n\nNO OSUS\n\n"
     exit 0
 fi
 
